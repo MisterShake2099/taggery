@@ -1,0 +1,1 @@
+def taggery(location, mode):
