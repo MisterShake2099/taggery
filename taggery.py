@@ -23,14 +23,21 @@
 #				copy:		New files with updated filenames will be created.
 #							Base files will be preserved.
 
-def taggery(location):
+import mutagen.FLAC
+import mutagen.ID3v2
+import mutagen.OGG
+import mutagen.APEv2
+import mutagen.MP4
+import mutagen.ASF
+
+def taggery(dir):
 
 	# store all appropriate fields from each audio file in 'location'
 
 	fields = []
 
-	for each file in location:
-		
+	for each file in dir:
+
 
 
 	# create copy of each file and use stored fields to name file
