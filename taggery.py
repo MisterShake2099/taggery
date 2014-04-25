@@ -32,12 +32,22 @@ import mutagen.ASF
 
 def taggery(dir):
 
-	# store all appropriate fields from each audio file in 'location'
+	# Store all appropriate fields from each audio file in 'location'.
+	# Metadata order: track number, title, length, (album artist/artist),
+	# album, notes.
+	# Album Artist will be used for file naming when available, otherwise
+	# Artist will be used.
 
 	fields = []
 
-	for each file in dir:
+	i = 0;
 
+	for each file in dir:
+        if file is FLAC:
+        	audio = FLAC("example.flac")
+        if file is MP3:
+        	audio = MP3("example.mp3")
+        if file is 
 
 
 	# create copy of each file and use stored fields to name file
