@@ -23,6 +23,8 @@
 #				copy:		New files with updated filenames will be created.
 #							Base files will be preserved.
 
+import sys
+
 import mutagen.FLAC
 import mutagen.ID3v2
 import mutagen.OGG
@@ -42,12 +44,13 @@ def taggery(dir):
 
 	i = 0;
 
-	for each file in dir:
+	for file in dir:
         if file is FLAC:
         	audio = FLAC("example.flac")
         if file is MP3:
         	audio = MP3("example.mp3")
-        if file is 
+        if file is MP4:
+        	audio = MP4("example.mp4")
 
 
 	# create copy of each file and use stored fields to name file
