@@ -3,17 +3,11 @@
 # This script creates new filenames for music files based on tag information.
 # It currently does this by copying the original file with a new name. The
 # ability to then delete the original file (simulating an overwrite) will be
-# added at a later date. The purpose of this renaming is to reduce filepath
-# length for music files by naming them in a way that is organized as if
-# folder trees were used AND to avoid a situation in which tags cannot be
-# read thus rendering much of the metadata for a particular music file
-# unusable.
+# added at a later date.
 
 # @title:		taggery
-
 # @author:		MisterShake2099
-
-# @location:	The location of a folder containing audio files to be
+# @location:	The location of a folder containing audio file(s) to be
 #				processed by the script.
 
 # @mode: (to be implemented later)
@@ -32,6 +26,9 @@ import mutagen.OGG
 import mutagen.APEv2
 import mutagen.MP4
 import mutagen.ASF
+
+# accept two args: first a directory, second a mode
+args = os.system(sys.argv[1], sys.argv[2])
 
 def taggery(dir):
 
