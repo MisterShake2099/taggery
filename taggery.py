@@ -24,6 +24,7 @@
 #							Base files will be preserved.
 
 import sys
+import shutil
 
 import mutagen.FLAC
 import mutagen.ID3v2
@@ -56,3 +57,5 @@ def taggery(dir):
 	# create copy of each file and use stored fields to name file
 
 	for each in fields
+
+	copyfile(src, dst)
