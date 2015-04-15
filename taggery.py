@@ -16,12 +16,12 @@
 
 import argparse
 
-import mutagen.FLAC
-import mutagen.ID3v2
-import mutagen.OGG
-import mutagen.APEv2
-import mutagen.MP4
-import mutagen.ASF
+from mutagen.flac import FLAC
+from mutagen.mp3 import MP3
+from mutagen.ogg import OGG
+from mutagen.APEv2 import APEv2
+from mutagen.MP4 import MP4
+from mutagen.ASF import ASF
 
 # Receive and parse invocation.
 parser = argparse.ArgumentParser()
@@ -30,6 +30,7 @@ parser.add_argument(
     help="filepath to source directory")
 parser.add_argument(
     "dst",
+    default="./destination",
     help="filepath to destination directory (used only in copy mode)")
 parser.add_argument(
     "--mode",
@@ -40,24 +41,15 @@ args = parser.parse_args()
 
 print("Running '{}'".format(__file__))
 
-# Set destination to be same as source when destination unspecified.
-if args.dst is None:
-    args.dst = args.src
-
 print(args.src)
 print(args.dst)
 print(args.mode)
+
 
 fields = args.src
 
 
 def taggery():
-
-    # Store all appropriate fields from each audio file in 'location'.
-    # Metadata order: track number, title, length, (album artist/artist),
-    # album, notes.
-    # Album Artist will be used for file naming when available, otherwise
-    # Artist will be used.
 
     for file in fields:
         if file is FLAC:
@@ -66,7 +58,15 @@ def taggery():
             audio = MP3("example.mp3")
         if file is MP4:
             audio = MP4("example.mp4")
+        if file is OGG:
+            audio = OGG("example.ogg")
+        if file is APEv2:
+            audio = APEv2("example.ape")
+        if file is ASF:
+            audio = ASF("example.asf")
+
+    print(audio)
 
     # create copy of each file and use stored fields to name file
 
-    copyfile(args.src, args.dst)
+    # copyfile(args.src, args.dst)
