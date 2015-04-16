@@ -16,12 +16,12 @@
 
 import argparse
 
-from mutagen.flac import FLAC
+from mutagen.FLAC import FLAC
 from mutagen.mp3 import MP3
+from mutagen.easyid3 import EasyID3
+from mutagen.id3 import ID3, TIT2
 from mutagen.ogg import OGG
-from mutagen.APEv2 import APEv2
 from mutagen.MP4 import MP4
-from mutagen.ASF import ASF
 
 # Receive and parse invocation.
 parser = argparse.ArgumentParser()
@@ -60,10 +60,6 @@ def taggery():
             audio = MP4("example.mp4")
         if file is OGG:
             audio = OGG("example.ogg")
-        if file is APEv2:
-            audio = APEv2("example.ape")
-        if file is ASF:
-            audio = ASF("example.asf")
 
     print(audio)
 
