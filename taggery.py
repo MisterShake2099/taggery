@@ -16,15 +16,14 @@
 
 import argparse
 
-from mutagen.FLAC import FLAC
+from mutagen.flac import FLAC
 from mutagen.mp3 import MP3
-from mutagen.easyid3 import EasyID3
 from mutagen.id3 import ID3, TIT2
 from mutagen.ogg import OGG
-from mutagen.MP4 import MP4
+from mutagen.mp4 import MP4
 
 # Receive and parse invocation.
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="parsing the input")
 parser.add_argument(
     "src",
     help="filepath to source directory")
@@ -54,6 +53,10 @@ def taggery():
     for file in fields:
         if file is FLAC:
             audio = FLAC("example.flac")
+        if file is ID3:
+            audio = ID3("example.mp3")
+        if file is TIT2:
+            audio = TIT2("example.mp3")
         if file is MP3:
             audio = MP3("example.mp3")
         if file is MP4:
