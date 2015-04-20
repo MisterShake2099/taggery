@@ -18,8 +18,7 @@ import argparse
 
 from mutagen.FLAC import FLAC
 from mutagen.mp3 import MP3
-from mutagen.easyid3 import EasyID3
-from mutagen.id3 import ID3, TIT2
+# from mutagen.id3 import ID3, TIT2
 from mutagen.ogg import OGG
 from mutagen.MP4 import MP4
 
