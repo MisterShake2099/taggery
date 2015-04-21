@@ -18,7 +18,7 @@ import argparse
 
 from mutagen.flac import FLAC
 from mutagen.mp3 import MP3
-from mutagen.id3 import ID3, TIT2
+from mutagen.id3 import ID3
 from mutagen.ogg import OGG
 from mutagen.mp4 import MP4
 
@@ -55,8 +55,6 @@ def taggery():
             audio = FLAC("example.flac")
         if file is ID3:
             audio = ID3("example.mp3")
-        if file is TIT2:
-            audio = TIT2("example.mp3")
         if file is MP3:
             audio = MP3("example.mp3")
         if file is MP4:
