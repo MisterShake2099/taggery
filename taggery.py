@@ -52,7 +52,10 @@ def taggery():
 
 
     fields = args.src
+    tag_getter(fields)
 
+def tag_getter(fields):
+    """ Does the tag getting work """
 
     for file in fields:
         if file is FLAC:
